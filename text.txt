@@ -1,0 +1,1 @@
+"Hello! ^start(animations/Stand/Gestures/Hey_1) Nice to meet you!"
