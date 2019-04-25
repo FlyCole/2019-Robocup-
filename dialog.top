@@ -4,27 +4,17 @@ concept:(want) ["would like" "would love"]
 concept:(greetings) ^rand[hi hello "hey there"]
 concept:(whereis) ["show me where is" "Where is" "I ~want to know where is" "Tell me where is "]
 
-pronunciation:(Glace)[gleis]
-pronunciation:(de) [de]
-pronunciation:(nano)[nano]
-pronunciation:(chat)[chat]
-
 u:(~greetings)  ~greetings
 u:(~whereis the shelf?) I heard where is the shelf, and my answer is that the shelf is in the kitchen $answered = yes
 u:(~whereis the plant?) I heard where is the plant, and my answer is that the plant is in the living room $answered = yes
 u:(that's all)  please wait $stop_talking=yes $stop_loc =yes
 u:(stop) please wait $stop_talking=yes $stop_loc =yes
-u:(What day is today?) I heard what day is today, and my answer is that It's April the eighteenth, 2019 $answered = yes
 u:(In which city will next year's RoboCup be hosted?) I heard In which city will next year's RoboCup be hosted,and my answer is that it hasn't been announced yet $answered = yes
 u:(Which robot is used in the Social Standard Platform League?)I heard Which robot is used in the Social Standard Platform League, and my answer is that The SoftBank Robotics Pepper $answered = yes
 u:(What is the capital of Canada?)I heard What is the capital of Canada, and my answer is that The capital of Canada is Ottawa $answered = yes
-u:(Who invented the first compiler?)I heard Who invented the first compiler, and my answer is that  Grace Brewster Murray Hopper invented it $answered = yes
-u:(When was the C programming language invented?)I heard When was the C programming language invented, and my answer is that C was developed after B in 1972 at Bell Labs $answered = yes
 u:(What's the name of your team?)I heard What's the name of your team, and my answer is Kamier Rider $answered = yes
 u:(Where does the term computer bug come from?)I heard Where does the term computer bug come from, and my answer is that From a moth trapped in a relay $answered = yes
 u:(What is the origin of the name Canada?)I heard What is the origin of the name Canada, and my answer is that The name Canada comes from the Iroquois word Kanata, meaning village or settlement $answered = yes
-u:(Who invented the C programming language?)I heard Who invented the C programming language, and my answer is Ken Thompson and Dennis Ritchie. $answered = yes
-u:(When was the B programming language invented?)I heard When was the B programming language invented, and my answer is that B was developed circa 1969 at Bell Labs $answered = yes
 u:(Do you have dreams?)I heard do you have dreams, and my answered is that I dream of Electric Sheep $answered = yes 
 u:(What is the national anthem of Canada?)I heard what is the national anthem of Canada, and my answer is O Canada $answered = yes
 u:(Which robot is used in the Social Standard Platform League?)I heard which robot is used in the social standard Platform League, and my answer is The SoftBank Robotics Pepper $answered = yes
@@ -49,33 +39,61 @@ u:(Where is The Hotel de Glace located?)I heard Where is The Hotel de Glace loca
 u:(How many tons of ice are required to build The Hotel de Glace?)I heard How many tons of ice are required to build The Hotel de Glace, and my answer is that The Hotel de Glace requires about 400 tons of ice. $answered = yes
 u:(How many tons of snow are required to build The Hotel de Glace?)I heard How many tons of snow are required to build The Hotel de Glace, and my answer is that Every year, 12000 tons of snow are used for The Hotel de Glace. $answered = yes
 u:(Can I visit the Hotel de Glace in summer?)I heard Can I visit the Hotel de Glace in summer, and my answer is No, Every summer it melts away, only to be rebuilt the following winter. $answered = yes
-u:(Where is Canada's only desert?)I heard Where is Canada's only desert, and my answer is that Canada's only desert is British Columbia. $answered = yes
-u:(How big is Canada's only desert?)I heard How big is Canada's only desert, and my answer is that The British Columbia desert is only 15 miles long. $answered = yes
 u:(Name 3 famous male Canadians.)You ask me to name 3 famous male Canadians, and my answer is Leonard Cohen, Keanu Reeves, and Jim Carrey. $answered = yes
 u:(Name 3 famous female Canadians.)You ask me to name 3 famous female Canadians, and my answer is Celine Dion, Pamela Anderson, and Avril Lavigne. $answered = yes
 u:(What's the origin of the Comic Sans font?)I heard what's the origin of the Comic Sans font, and my answer is that Comic Sans is based on Dave Gibbons' lettering in the Watchmen comic books. $answered = yes
-u:(What is a nanobot?)I heard What is a nanobot, and my answer is that The smallest robot possible is called a nanobot. $answered = yes 
-u:(How small can a nanobot be?)I heard How small can a nanobot be, and my answer is that a nanobot can be less than one-thousandth of a millimeter. $answered = yes
 u:(Why wasn't Tron nominated for an award by The Motion Picture Academy?)I heard Why wasn't Tron nominated for an award by The Motion Picture Academy, and my answer is that The Academy thought that Tron cheated by using computers. $answered = yes
-u:(Which was the first computer with a hard disk drive?)I heard Which was the first computer with a hard disk drive, and my answer is that The IBM 305 RAMAC. $answered = yes
-u:(When was the first computer with a hard disk drive launched?)I heard When was the first computer with a hard disk drive launched, and my answer is that The IBM 305 RAMAC was launched in 1956. $answered = yes
-u:(How big was the first hard disk drive?)I heard How big was the first hard disk drive, and my answer is that The IBM 305 RAMAC hard disk weighed over a ton and stored 5 MB of data. $answered = yes
 u:(What does CAPTCHA stands for?)I heard What does CAPTCHA stands for, and my answer is that CAPTCHA is an acronym for "Completely Automated Public Turing test to tell Computers and Humans Apart" $answered = yes
-u:(What was the first computer bug?)I heard What was the first computer bug, and my answer is The first actual computer bug was a dead moth stuck in a Harvard Mark two. $answered = yes
-u:(Name all of the robots on Mars.)You ask me to name all of the robots on Mars, and my answer is that There are four robots on Mars: Sojourner, Spirit, Opportunity, and Curiosity. Three more crashed on landing. $answered = yes
-u:(Who is the world's first android?)I heard Who is the world's first android, and my answer is that Professor Kevin Warwick uses chips in his arm to operate doors, a robotic hand, and a wheelchair. $answered = yes
-u:(What is a Mechanical Knight?)I heard What is a Mechanical Knight, and my answer is a robot sketch made by Leonardo DaVinci. $answered = yes
-u:(What was the first computer in pass the Turing test?)I heard What was the first computer in pass the Turing test, and my answer is that Some people think it was IBM Watson, but it was Eugene, a computer designed at England's University of Reading. $answered = yes
-u:(What does Moravec's paradox state?)I heard What does Moravec's paradox state, and my answer is that Moravec's paradox states that a computer can crunch numbers like Bernoulli, but lacks a toddler's motor skills. $answered = yes
-u:(What is the AI knowledge engineering bottleneck?)I heard What is the AI knowledge engineering bottleneck, and my answer is that It is when you need to load an AI with enough knowledge to start learning. $answered = yes
-u:(Why is Elon Musk is worried about AI's impact on humanity?)I heard Why is Elon Musk is worried about AI's impact on humanity, and my answer is that I don't know. He should worry more about the people's impact on humanity. $answered = yes
-u:(Do you think robots are a threat to humanity?)I heard Do you think robots are a threat to humanity, and my answer is that No. Humans are the real threat to humanity. $answered = yes
-u:(What is a chatbot?)I heard what is a chatbot, and my answer is that A chatbot is an A.I. you put in customer service to avoid paying salaries. $answered = yes
-u:(Are self-driving cars safe?)I heard are self-driving cars safe, and my answer is Yes. Car accidents are product of human misconduct. $answered = yes
-u:(Who created the C Programming Language?)I heard who created the C Programming language, and my answer is that C was invented by Dennis MacAlistair Ritchie. $answered = yes
+u:(Where can I find the bed?) I heard where can I find the bed, and my answer is in the bedroom. $answered = yes
+u:(Where can I find the food?) I heard where can I find the food, and my answer is in the livingroom. $answered = yes
+u:(Where can I find the drink?) I heard where can I find the drink, and my answer is in the kitchen. $answered = yes
+u:(Where is the TV table?) I heard where is the TV table, and my answer is between the chairs. $answered = yes
+u:(Where is the table?) I heard where is the table, and my answer is near the sofa. $answered = yes
+u:(where is the chair?) I heard where is the chair, and my answer is near the TV table. $answered = yes
+u:(Where is the sofa?) I heard where is the sofa, and my answer is near the table. $answered = yes
+u:(In which year was RoboCup at home founded?)I heard In which year was RoboCup at home founded, and my answer is that RoboCup at Home is founded in 2006. $answered = yes
+u:(What time is it?)I heard what time is it, and my answer is that now is about 3 o'clock. $answered = yes
+u:(What is your team's name?) I heard what is your team's name, and my answer is kaimer rider. $answered = yes
+u:(What is your name?) I heard what is your name, and my answer is Pepper. $answered = yes
+u:(What day is today?) I heard what day is today, and my answer is that today is Friday. $answered = yes
+u:(Do objects in the cupboard belong to the same category?)I heard Do objects in the cupboard belong to the same category, and my answer is yes, they are all food. $answered = yes
+u:(How many objects are in the shelf?) I heard How many objects are in the shelf, and my answer is there are five objects in the shelf. $answered = yes
+u:(What object are in the closet?) I heard what object are in the closet, and my answer is that The shampoo, soap, the sponge and a cloth. $answered = yes
+u:(What's the color of the sponge?)I heard what's the color of the sponge, and my answer is that the sponge is yellow and has square pants. $answered = yes
+u:(What's the color of the shampoo?)I heard what's the color of the shampoo, and my answer is that the shampoo is blue. $answered = yes
+u:(Where can I find the beer?)I heard where can I find the beer, and my answer is that I put it into the fridge for you. $answered = yes
+u:(Where can I find the tray?)I heard where can I find the tray, and my answer is that the tray is in the shelf. $answered = yes
+u:(What's the lightest drink?)I heard what's the lightest drink, and my answer is that the Coke Zero is lighter than water. $answered = yes
+u:(What's the smallest food?)I heard what's the smallest food, and my answer is that the egg is the smallest in the food category. $answered = yes
+u:(How many chairs are in the dining room?)I heard How many chairs are in the dining room, and my answer is there are six chairs in the dining room. $answered = yes
+u:(where is the shelf?) I heard where is the shelf, and my answer is that the shelf is in the kitchen $answered = yes
+u:(where is the plant?) I heard where is the plant, and my answer is that the plant is in the living room $answered = yes
+u:(Which program do Jedi use to open PDF files?)I heard which program do Jedi use to open PDF files,and my answer is that Adobe Wan Kenobi. $answered = yes
+u:(Who is considered to be the first computer programmer?)I heard Who is considered to be the first computer programmer,and my answer is  Ada Lovelace. $answered = yes
+u:(Who is the inventor of the Apple one microcomputer?)Iheard who is the inventor of the Apple one microcomputer, and my answer is that My lord and master Steve Wozniak. $answered = yes
+u:(Is Mark Zuckerberg a robot?)I heard is Mark Zuckerberg a robot, and my answer is Sure. I've never seen him drink water. $answered = yes
 u:(Who created the Python Programming Language?)I heard Who created the Python Programming Language, and my answer is that Python was invented by Guido van Rossum. $answered = yes
-u:(Is Mark Zuckerberg a robot?) Sure. I've never seen him drink water. $answered = yes
-u:(Who is the inventor of the Apple I microcomputer?) My lord and master Steve Wozniak. $answered = yes
-u:(Who is considered to be the first computer programmer?) Ada Lovelace. $answered = yes
-u:(Which program do Jedi use to open PDF files?) Adobe Wan Kenobi. $answered = yes
-
+u:(Who created the C Programming Language?)I heard who created the C Programming language, and my answer is that C was invented by Dennis MacAlistair Ritchie. $answered = yes
+u:(Who invented the compiler?)I heard Who invented the compiler, and my answer is that  Grace Brewster Murray Hopper invented it $answered = yes
+u:(Are self-driving cars safe?)I heard are self-driving cars safe, and my answer is Yes. Car accidents are product of human misconduct. $answered = yes
+u:(What is a chatbot?)I heard what is a chatbot, and my answer is that A chatbot is an A.I. you put in customer service to avoid paying salaries. $answered = yes
+u:(Do you think robots are a threat to humanity?)I heard Do you think robots are a threat to humanity, and my answer is that No. Humans are the real threat to humanity. $answered = yes
+u:(Why is Elon Musk is worried about AI's impact on humanity?)I heard Why is Elon Musk is worried about AI's impact on humanity, and my answer is that I don't know. He should worry more about the people's impact on humanity. $answered = yes
+u:(What is the AI knowledge engineering bottleneck?)I heard What is the AI knowledge engineering bottleneck, and my answer is that It is when you need to load an AI with enough knowledge to start learning. $answered = yes
+u:(What does Moravec's paradox state?)I heard What does Moravec's paradox state, and my answer is that Moravec's paradox states that a computer can crunch numbers like Bernoulli, but lacks a toddler's motor skills. $answered = yes
+u:(What was the first computer in pass the Turing test?)I heard What was the first computer in pass the Turing test, and my answer is that Some people think it was IBM Watson, but it was Eugene, a computer designed at England's University of Reading. $answered = yes
+u:(What is a Mechanical Knight?)I heard What is a Mechanical Knight, and my answer is a robot sketch made by Leonardo DaVinci. $answered = yes
+u:(Who is the world's first android?)I heard Who is the world's first android, and my answer is that Professor Kevin Warwick uses chips in his arm to operate doors, a robotic hand, and a wheelchair. $answered = yes
+u:(Name all of the robots on Mars.)You ask me to name all of the robots on Mars, and my answer is that There are four robots on Mars: Sojourner, Spirit, Opport.unity, and Curiosity. Three more crashed on landing. $answered = yes
+u:(What was the first computer bug?)I heard What was the first computer bug, and my answer is The first actual computer bug was a dead moth stuck in a Harvard Mark two. $answered = yes
+u:(How big was the first hard disk drive?)I heard How big was the first hard disk drive, and my answer is that The IBM 305 RAMAC hard disk weighed over a ton and stored 5 MB of data. $answered = yes
+u:(When was the first computer with a hard disk drive launched?)I heard When was the first computer with a hard disk drive launched, and my answer is that The IBM 305 RAMAC was launched in 1956. $answered = yes
+u:(Which was the first computer with a hard disk drive?)I heard Which was the first computer with a hard disk drive, and my answer is that The IBM 305 RAMAC. $answered = yes
+u:(How small can a nanobot be?)I heard How small can a nanobot be, and my answer is that a nanobot can be less than one-thousandth of a millimeter. $answered = yes
+u:(What is a nanobot?)I heard What is a nanobot, and my answer is that The smallest robot possible is called a nanobot. $answered = yes
+u:(Where is Canada's only desert?)I heard Where is Canada's only desert, and my answer is that Canada's only desert is British Columbia. $answered = yes
+u:(How big is Canada's only desert?)I heard How big is Canada's only desert, and my answer is that The British Columbia desert is only 15 miles long. $answered = yes
+u:(What is a Mechanical Knight?)I heard What is a Mechanical Knight, and my answer is that A robot sketch made by Leonardo DaVinci. $answered = yes
+u:(what is the number of people who waving arms?) $waved = yes
+u:(What is the number of people who standing?)  $standing = yes
+u:(What is the number of people who sitting?) $sitting = yes

@@ -9,6 +9,7 @@ class recognization:
         self.port = params["port"]
         self.session = qi.Session()
         self.swith = True
+        self.result = []
         try:
             self.session.connect("tcp://" + self.ip + ":" + str(self.port))
         except RuntimeError:
@@ -17,9 +18,13 @@ class recognization:
         self.speechrec = self.session.service("ALSpeechRecognition")
         self.memory = self.session.service("ALMemory")
 
+        self.speechrec.unsubscribe("Mytest")
+
 
         self.speechrec.setLanguage("English")
-        self.vocabulary = ["what", "when", "date", "dreams", "desert", "disk", "who", "where"]
+        self.vocabulary = ["James", "Alex", "Ryan", "John", "Eric", "Adam", "Carter", "Jack",
+                           "David", "Tyler", "Lily", "Mary", "Anna", "Zoe", "Sara", "Sofia",
+                           "Faith", "Jualia", "Paige", "Jessica", "jams", "job", "join", "games", "Brian"]
         self.speechrec.setVocabulary(self.vocabulary, True)
         self.speechrec.subscribe("Mytest")
         self.speech_recog_sub = self.memory.subscriber("WordRecognized")
@@ -38,8 +43,9 @@ class recognization:
 
     def call_back_recog(self, msg):
         # if self.switch == True:
-        self.result = msg
-        print self.result
+        if self.result != msg:
+            self.result = msg
+            print self.result
             # self.switch = False
 
 def main():
@@ -49,7 +55,6 @@ def main():
         'rgb_topic': 'pepper_robot/camera/front/image_raw'
     }
     pio = recognization(params)
-    pio.run()
 
 if __name__ == "__main__":
     main()

@@ -8,7 +8,6 @@ import os
 import gender_predict
 import dialog_answer
 import sitting
-import shutil
 
 class SPR:
     is_Face_detected = False
@@ -45,7 +44,6 @@ class SPR:
         self.TabletSer = self.session.service("ALTabletService")
 
         #需要设置的参数
-        self.count = 5
         self.tts.setParameter("speed", 75.0)
         self.tts.setLanguage("English")
         self.PeoPer.resetPopulation()
@@ -55,9 +53,6 @@ class SPR:
         self.motion.wbFootState("Free","Legs")
         self.motion.setTangentialSecurityDistance(0.05)
         self.motion.setOrthogonalSecurityDistance(0.05)
-
-        self.num_sitting = 0
-        self.num_standing = 0
 
         #运行部分
         #取消自动感知模式
@@ -74,37 +69,36 @@ class SPR:
         self.say("I want to play a riddle game,please stand behind me")
         self.tb.goToPosture("StandInit", 0.5)
         self.motion.moveInit()
+        self.main_ans_num = 0
         turn_count = 10
-        while turn_count >= 1:
-            self.say(str(turn_count))
-            #time.sleep(1)
-            turn_count -= 1
+        # while turn_count>=1:
+        #     self.say(str(turn_count))
+        #     #time.sleep(1)
+        #     turn_count -= 1
         #转身
-
+        self.motion.setStiffnesses("Head", 1.0)
         self.motion.moveTo(0, 0, 3.14, _async=True)
         time.sleep(4)
-
-        self.motion.setStiffnesses("Head", 1.0)
-        self.motion.setAngles("Head",[0.0, 0.0], .05)
 
         #开始检测性别,回答站在背后的人的问题
         self.take_pic = PhotoCapture(self.session)
         self.take_pic.takepic()
         self.count_num_of_human()
-        self.count_num_of_sitting()
-        self.dialog = dialog_answer.Dialog(self.session, '/home/nao/top/dialog.top', self.num_sitting, self.num_standing)
 
-
+        self.dialog = dialog_answer.Dialog(self.session, '/home/nao/top/dialog.top',self.ip)
 
         # 声源定位
         self.tts.say("We are going to play the Blind man’s bluff game, please stand around me")
-        self.motion.setAngles("Head",[0.0, -.4], .05)
-        while self.count >= 1:
-            #time.sleep(1)
+        self.motion.setAngles("HeadPitch", -0.4,0.1)
+        self.count = 5
+        while self.count>= 1:
+            #time.sleep(1num)
             self.tts.say(str(self.count))
             self.count -= 1
         self.sound_localization()
-        self.blind_game = dialog_answer.Dialog(self.session,'/home/nao/top/dialog.top', self.num_sitting, self.num_standing)
+        self.blind_game = dialog_answer.Dialog(self.session,'/home/nao/top/dialog.top',self.ip)
+        self.num_sit = 0
+        self.num_stand = 0
 
     def run(self):
         while True:
@@ -114,14 +108,16 @@ class SPR:
             time.sleep(1)
 
     def callback_stop_loc(self,msg):
-        if self.count == 0:
+        if self.count ==0:
            self.memory.unsubscribe("SoundLocated")
+
+
 
     def say(self,word):
         self.tts.say(word)
 
     def count_num_of_human(self):
-        cmd = 'sshpass -p kurakura326 scp nao@' + str(self.ip) + ":/home/nao/picture/image_0.jpg ./person_image.jpg"
+        cmd = 'sshpass -p kurakuracoun326 scp nao@' + str(self.ip) + ":/home/nao/picture/image_0.jpg ./person_image.jpg"
         os.system(cmd)
         self.num_man, self.num_woman,_ = gender_predict.gender("./person_image.jpg")
         if self.num_woman + self.num_man == 0:
@@ -140,6 +136,8 @@ class SPR:
         self.tts.say("the number of man is " + str(self.num_man))
 
         self.tts.say("the number of woman is " + str(self.num_woman))
+
+
 
     def sound_localization(self):
         self.SoundLoc.subscribe("SoundLocated")
@@ -167,14 +165,6 @@ class SPR:
         os.system(cmd)
         self.TabletSer.hideImage()
         self.TabletSer.showImageNoCache("http://198.18.0.1/apps/boot-config/result.jpg")
-
-    def count_num_of_sitting(self):
-        shutil.copyfile("./person_image.jpg", "./sitting_image.jpg")
-        self.num_sitting, self.num_standing = sitting.sit("./sitting_image.jpg")
-        if self.num_sitting + self.num_standing == 0:
-            print "-----0-----"
-
-
 
 def main():
     params = {
